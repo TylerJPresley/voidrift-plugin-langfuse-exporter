@@ -1,0 +1,50 @@
+{
+  "name": "@voidrift/plugin-langfuse-exporter",
+  "version": "0.1.0",
+  "description": "VoidRift Langfuse exporter — maps the core's neutral ObsRecord stream onto Langfuse's trace/observation/generation model (langfuse-exporter-blueprint §1).",
+  "license": "Apache-2.0",
+  "type": "module",
+  "engines": {
+    "node": ">=22"
+  },
+  "main": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.js"
+    },
+    "./package.json": "./package.json"
+  },
+  "files": [
+    "dist",
+    "LICENSE"
+  ],
+  "scripts": {
+    "build": "tsc -p tsconfig.build.json",
+    "typecheck": "tsc --noEmit",
+    "test": "vitest --run"
+  },
+  "peerDependencies": {
+    "@voidrift/core": "^0.1.0"
+  },
+  "dependencies": {
+    "@langfuse/langchain": "5.13.1",
+    "@langfuse/tracing": "5.13.1"
+  },
+  "devDependencies": {
+    "@types/node": "26.6.5",
+    "@voidrift/core": "^0.1.0",
+    "typescript": "5.9.3",
+    "vitest": "5.0.3"
+  },
+  "voidrift": {
+    "kind": "plugin",
+    "plugin": true,
+    "description": "Carries the core's neutral observability stream to a Langfuse project: one ObsExporter mapping each ObsRecord onto Langfuse's trace/observation/generation model (langfuse-exporter-blueprint §1)."
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/TylerJPresley/voidrift-plugin-langfuse-exporter.git"
+  }
+}
